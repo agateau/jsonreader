@@ -1,0 +1,14 @@
+{
+  "error": {
+    "code": 12
+  },
+
+  "users": [
+    {
+      "name": "alice"
+    },
+    {
+      "name": "bob"
+    }
+  ]
+}
