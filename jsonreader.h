@@ -1,6 +1,8 @@
 /*
  * JsonReader - (C) 2016 Aurélien Gâteau <mail@agateau.com>
  *
+ * https://github.com/agateau/jsonreader
+ *
  * This code is released under the BSD 3-Clause license.
  * https://opensource.org/licenses/BSD-3-Clause
  */

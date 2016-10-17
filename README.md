@@ -1,9 +1,9 @@
 # JsonReader
 
 JsonReader is a simple header-only class to make it easier to read data from
-complex QJsonDocument.
+complex JSON documents loaded with QJsonDocument.
 
-[example.cpp](example.cpp) demonstrates how to use it to read
+[example.cpp](example.cpp) demonstrates how to use it to read data from
 [example.json](example.json).
 
 ## Installation
