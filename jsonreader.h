@@ -53,56 +53,27 @@
  * QString firstUserName = JsonReader(document)["users"][0]["name"].toString();
  * ```
  */
-class JsonReader {
+class JsonReader : public QJsonValue {
 public:
     JsonReader(const QJsonDocument& doc)
-        : mRoot(doc.isObject() ? QJsonValue(doc.object()) : QJsonValue(doc.array()))
+        : QJsonValue(doc.isObject() ? QJsonValue(doc.object()) : QJsonValue(doc.array()))
     {
     }
 
-    JsonReader(const QJsonValue& root)
-        : mRoot(root)
+    JsonReader(const QJsonValue& value)
+        : QJsonValue(value)
     {
     }
 
     JsonReader operator[](const QString& key) const
     {
-        return JsonReader(mRoot.toObject()[key]);
+        return JsonReader(toObject()[key]);
     }
 
     JsonReader operator[](int idx) const
     {
-        return JsonReader(mRoot.toArray()[idx]);
+        return JsonReader(toArray()[idx]);
     }
-
-    operator QJsonValue() const
-    {
-        return mRoot;
-    }
-
-    // Expose the same API as QJsonValue
-    int toInt() const
-    {
-        return mRoot.toInt();
-    }
-
-    QString toString() const
-    {
-        return mRoot.toString();
-    }
-
-    QJsonArray toArray() const
-    {
-        return mRoot.toArray();
-    }
-
-    QJsonObject toObject() const
-    {
-        return mRoot.toObject();
-    }
-
-private:
-    QJsonValue mRoot;
 };
 
 #endif /* JSONREADER_H */
